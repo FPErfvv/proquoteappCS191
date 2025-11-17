@@ -154,14 +154,14 @@
 
         // Fetch quote
         const response = await fetch("https://quote.cs260.click");
-        const text = await response.text();
+        const text = await response.json();
 
         // Fade-in animation
         quoteBox.style.opacity = 0;
         quoteBox.style.transform = "translateY(10px)";
 
         setTimeout(() => {
-          quoteBox.textContent = text;
+          quoteBox.textContent = text.quote;
           quoteBox.style.opacity = 1;
           quoteBox.style.transform = "translateY(0)";
         }, 150);
